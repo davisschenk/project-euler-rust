@@ -18,7 +18,6 @@ fn reverse_digits(n: usize, radix: usize) -> usize {
     reverse
 }
 
-
 fn is_palindrome(number: usize) -> bool {
     number == reverse_digits(number, 10)
 }
@@ -28,7 +27,7 @@ fn improved_search() -> usize {
     let mut step = 11;
     let mut j_max = 999;
 
-    for i in (99..j_max+1).step_by(step).rev() {
+    for i in (99..j_max + 1).step_by(step).rev() {
         println!("{}", i);
         if i % 11 == 0 {
             j_max = 999;
@@ -38,9 +37,9 @@ fn improved_search() -> usize {
             step = 11;
         }
 
-        for j in (99..j_max+1).step_by(step).rev() {
+        for j in (99..j_max + 1).step_by(step).rev() {
             if i * j <= best {
-                break
+                break;
             }
 
             if is_palindrome(j * i) {
@@ -51,7 +50,6 @@ fn improved_search() -> usize {
 
     best
 }
-
 
 #[cfg(test)]
 mod p004 {
@@ -75,7 +73,6 @@ mod p004 {
         assert_eq!(is_palindrome(123), false);
         assert_eq!(is_palindrome(609906), true);
         assert_eq!(is_palindrome(29), false);
-
     }
 
     #[bench]
@@ -83,5 +80,4 @@ mod p004 {
     fn bench_is_palindrome(b: &mut Bencher) {
         b.iter(|| is_palindrome(404));
     }
-
 }

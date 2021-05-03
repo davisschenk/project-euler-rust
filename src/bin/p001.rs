@@ -8,7 +8,7 @@ fn sum_divisible_by(n: usize, target: usize) -> usize {
     n * (p * (p + 1)) / 2
 }
 fn summed_sums() -> usize {
-    return sum_divisible_by(3, 999) + sum_divisible_by(5, 999) - sum_divisible_by(15, 999);
+    sum_divisible_by(3, 999) + sum_divisible_by(5, 999) - sum_divisible_by(15, 999)
 }
 
 #[cfg(test)]

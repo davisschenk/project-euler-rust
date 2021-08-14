@@ -2,8 +2,7 @@
 extern crate test;
 
 use std::cmp::max;
-
-const ANSWER: usize = 906609;
+use solver::problem;
 
 fn reverse_digits(n: usize, radix: usize) -> usize {
     let mut nc = n;
@@ -51,33 +50,4 @@ fn improved_search() -> usize {
     best
 }
 
-#[cfg(test)]
-mod p004 {
-    use super::*;
-    use test::Bencher;
-
-    #[test]
-    fn test_improved_search() {
-        assert_eq!(improved_search(), ANSWER);
-    }
-
-    #[bench]
-    fn bench_improved_search(b: &mut Bencher) {
-        b.iter(|| improved_search());
-    }
-
-    #[test]
-    #[ignore]
-    fn test_is_palindrome() {
-        assert_eq!(is_palindrome(343), true);
-        assert_eq!(is_palindrome(123), false);
-        assert_eq!(is_palindrome(609906), true);
-        assert_eq!(is_palindrome(29), false);
-    }
-
-    #[bench]
-    #[ignore]
-    fn bench_is_palindrome(b: &mut Bencher) {
-        b.iter(|| is_palindrome(404));
-    }
-}
+problem!(906609, improved_search);

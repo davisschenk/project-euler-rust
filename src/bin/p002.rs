@@ -1,7 +1,7 @@
 #![feature(test)]
 extern crate test;
 
-const ANSWER: usize = 4613732;
+use solver::*;
 
 struct FibonacciSequence {
     current: usize,
@@ -68,28 +68,4 @@ fn even_fibonacci() -> usize {
         .fold(0, |acc, x| acc + x)
 }
 
-#[cfg(test)]
-mod p002 {
-    use super::*;
-    use test::Bencher;
-
-    #[test]
-    fn test_naive() {
-        assert_eq!(naive(), ANSWER);
-    }
-
-    #[bench]
-    fn bench_naive(b: &mut Bencher) {
-        b.iter(|| naive());
-    }
-
-    #[test]
-    fn test_even_fibonacci() {
-        assert_eq!(even_fibonacci(), ANSWER);
-    }
-
-    #[bench]
-    fn bench_even_fibonacci(b: &mut Bencher) {
-        b.iter(|| even_fibonacci());
-    }
-}
+problem!(4613732, naive, even_fibonacci);

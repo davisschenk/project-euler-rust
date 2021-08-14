@@ -1,7 +1,7 @@
 #![feature(test)]
 extern crate test;
 
-const ANSWER: usize = 6857;
+use solver::problem;
 const NUMBER: usize = 600851475143;
 
 fn check_all() -> usize {
@@ -61,28 +61,4 @@ fn squared() -> usize {
     n
 }
 
-#[cfg(test)]
-mod p003 {
-    use super::*;
-    use test::Bencher;
-
-    #[test]
-    fn test_check_all() {
-        assert_eq!(check_all(), ANSWER);
-    }
-
-    #[bench]
-    fn bench_check_all(b: &mut Bencher) {
-        b.iter(|| check_all());
-    }
-
-    #[test]
-    fn test_squared() {
-        assert_eq!(squared(), ANSWER);
-    }
-
-    #[bench]
-    fn bench_squared(b: &mut Bencher) {
-        b.iter(|| squared());
-    }
-}
+problem!(6857, squared, check_all);

@@ -1,8 +1,8 @@
 #![feature(test)]
 extern crate test;
 
-use std::cmp::max;
 use solver::problem;
+use std::cmp::max;
 
 fn reverse_digits(n: usize, radix: usize) -> usize {
     let mut nc = n;

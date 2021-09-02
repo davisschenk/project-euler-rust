@@ -24,7 +24,6 @@ impl Parse for Problem {
 
         
         while let Ok(t) = input.parse::<Ident>() {
-            println!("{:?}", t);
             functions.push(t);
 
 
